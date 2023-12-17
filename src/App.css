@@ -1,0 +1,9 @@
+/* iframe {
+    pointer-events: none;
+  } */
+
+  iframe body {
+    pointer-events: auto;
+    overflow-y: scroll; /* 垂直方向のスクロールのみを有効にする */
+    height: 100%; /* iframe が表示される領域いっぱいに表示する */
+  }
