@@ -1,9 +1,34 @@
-/* iframe {
-    pointer-events: none;
-  } */
+main {
+  background-color: antiquewhite;
+  height: 100vh;
+}
 
-  iframe body {
-    pointer-events: auto;
-    overflow-y: scroll; /* 垂直方向のスクロールのみを有効にする */
-    height: 100%; /* iframe が表示される領域いっぱいに表示する */
-  }
+
+.log {
+  position: fixed;
+  bottom: 20vh;
+  right: 10px;
+  padding: 6px 40px;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size:x-large;
+  background-color: rgba(43, 69, 243, 0.8);
+  padding: 20px;
+  text-align: center;
+}
+
+.clear{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  text-align: center;
+}

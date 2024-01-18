@@ -1,0 +1,18 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import "./Header.css";
+const Header = () => {
+    return (
+        <div className="header">
+            <div className="hero is-primary hero-body">
+                <p className="title">
+                    WikiJump
+                </p>
+                <nav><Link to="/"><FontAwesomeIcon icon={faGear} />最初から始める</Link></nav>
+            </div>
+        </div>
+    )
+}
+
+export default Header;
