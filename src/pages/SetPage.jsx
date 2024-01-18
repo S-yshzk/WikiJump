@@ -5,7 +5,7 @@ async function getWikiId(title) {
     const url = `https://ja.wikipedia.org/w/api.php?&origin=*&action=query&format=json&titles=${title}`;
     const res = await fetch(url);
     const json = await res.json();
-    if(Number(Object.keys(json.query.pages)[0]) === -1) {
+    if (Number(Object.keys(json.query.pages)[0]) === -1) {
         alert("存在しないタイトルです")
         throw new Error("Invalid input: Page does not exist.");
     }
@@ -21,6 +21,7 @@ const setPage = ({ start, setStart, setGoal, setList, setTitle, setCount }) => {
                 <p className="title column has-text-centered">WikiJump</p>
             </div>
             <form
+                autoComplete="off"
                 onSubmit={async (event) => {
                     event.preventDefault();
                     if (!event.target.elements.start.value || !event.target.elements.goal.value) {
