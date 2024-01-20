@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faFlagCheckered } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import GameLog from "../componens/GameLog";
 async function getWikiId(title) {
     const url = `https://ja.wikipedia.org/w/api.php?&origin=*&action=query&format=json&titles=${title}`;
     const res = await fetch(url);
@@ -13,7 +14,7 @@ async function getWikiId(title) {
     return { name: title, id: pageId }
 }
 
-const setPage = ({ start, setStart, setGoal, setList, setTitle, setCount }) => {
+const setPage = ({ start, setStart, setGoal, setList, setTitle, setCount, logList, setLogList }) => {
     const navigate = useNavigate();
     return (
         <main>
@@ -32,6 +33,9 @@ const setPage = ({ start, setStart, setGoal, setList, setTitle, setCount }) => {
                         alert("スタート地点とゴール地点は異なる値を入力してください。");
                         return;
                     }
+                    if (event.target.elements.start.value !== logList[0] || event.target.elements.goal.value !== logList[logList.length - 1]) {
+                        setLogList("");
+                    }
                     const startValue = await getWikiId(event.target.elements.start.value);
                     setStart(startValue);
                     setList([event.target.elements.start.value]);
@@ -46,7 +50,7 @@ const setPage = ({ start, setStart, setGoal, setList, setTitle, setCount }) => {
                     <div className="column is-half">
                         <label className="label">スタート地点</label>
                         <p className="control has-icons-left">
-                            <input className="input" type="text" name="start" placeholder="start" required />
+                            <input className="input" type="text" name="start" placeholder="start" required defaultValue={logList[0]} />
                             <span className="icon is-small is-left">
                                 <i className="fas fa-envelope"></i>
                                 <FontAwesomeIcon icon={faFlagCheckered} />
@@ -61,7 +65,7 @@ const setPage = ({ start, setStart, setGoal, setList, setTitle, setCount }) => {
                     <div className="column is-half">
                         <label className="label">ゴール地点</label>
                         <p className="control has-icons-left">
-                            <input className="input" type="text" name="goal" placeholder="goal" required />
+                            <input className="input" type="text" name="goal" placeholder="goal" required defaultValue={logList[logList.length - 1]} />
                             <span className="icon is-small is-left">
                                 <i className="fas fa-lock"></i>
                                 <FontAwesomeIcon icon={faLocationDot} />
@@ -73,6 +77,7 @@ const setPage = ({ start, setStart, setGoal, setList, setTitle, setCount }) => {
                     <button className="button is-link">セットしてゲームを始める</button>
                 </div>
             </form>
+            <GameLog logList={logList} setLogList={setLogList} />
         </main>
     )
 }

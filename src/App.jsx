@@ -13,7 +13,7 @@ function App() {
     const [count, setCount] = useState(0);
     const [list, setList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-
+    const [logList, setLogList] = useState("");
     return (
         <div>
             {isLoading&& 
@@ -23,9 +23,9 @@ function App() {
             </div>}
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<SetPage start={start} setStart={setStart} setGoal={setGoal} setList={setList} setTitle={setTitle} setIsLoadingisLoading={setIsLoading} setCount={setCount}/>}></Route>
+                    <Route path="/" element={<SetPage start={start} setStart={setStart} setGoal={setGoal} setList={setList} setTitle={setTitle} setIsLoadingisLoading={setIsLoading} setCount={setCount} logList={logList} setLogList={setLogList}/>}></Route>
                     <Route path="/game" element={<GamePage title={title} list={list} goal={goal} count={count} setCount={setCount} setTitle={setTitle} setList={setList} setIsLoading={setIsLoading} />}></Route>
-                    <Route path="/clear" element={<ClearPage count={count} list={list}/>}/>
+                    <Route path="/clear" element={<ClearPage count={count} list={list} logList={logList}/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

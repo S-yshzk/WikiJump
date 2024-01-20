@@ -1,8 +1,8 @@
 import "../App.css";
 
-const Log = ({count, list, goal}) => {
+const Jump = ({count, list, goal}) => {
     return (
-        <div className="log box has-background-primary-light" style={{maxWidth:"50vw"}}>
+        <div className="jump box has-background-primary-light" style={{maxWidth:"50vw"}}>
             {list.map((item, index) => {
                 return(
                     <tt key={index}>{item}→</tt>
@@ -14,4 +14,4 @@ const Log = ({count, list, goal}) => {
     )
 }
 
-export default Log;
+export default Jump;

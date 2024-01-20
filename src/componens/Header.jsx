@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { faGear, faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import "./Header.css";
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
                 <p className="title">
                     WikiJump
                 </p>
-                <nav><Link to="/"><FontAwesomeIcon icon={faGear} />最初から始める</Link></nav>
+                <nav><Link to="/"><FontAwesomeIcon icon={faRightToBracket} />最初から始める</Link></nav>
             </div>
         </div>
     )
